@@ -1,5 +1,6 @@
-## Forging New Worlds: high-resolution synthetic galaxies with chained generative adversarial networks  ##
+## Forging new worlds
+### High-resolution synthetic galaxies with chained generative adversarial networks
 
-Suplementary code for the paper, **Forging new worlds: high-resolution synthetic galaxies with chained generative adversarial networks** found [here](https://arxiv.org/pdf/1811.03081.pdf).
+This repository contains supplementary code for the paper _Forging new worlds: high-resolution synthetic galaxies with chained generative adversarial networks_, a pre-print version which can be found on arXiv [arXiv:1811.03081](https://arxiv.org/abs/1811.03081).
 
-Currently this repository only contains models for generating galaxies using our chained GAN model. Future code for training the model will be available soon.
+At the moment, this repository only provides the trained models for generating galaxies using our chained GAN model. The code necessary for training the models from scratch with your own galaxy datasets will be available soon.
