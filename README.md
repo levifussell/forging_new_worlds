@@ -5,6 +5,6 @@ This repository contains supplementary code for the paper _Forging new worlds: h
 
 At the moment, this repository only provides the trained models for generating galaxies using our chained GAN model. The code necessary for training the models from scratch with your own galaxy datasets will be available soon.
 
-# File description
+#### File description
 
-# Quickstart guide
+#### Quickstart guide
