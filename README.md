@@ -8,3 +8,15 @@ At the moment, this repository only provides the trained models for generating g
 #### File description
 
 #### Quickstart guide
+
+To generate galaxies (in either Python2.x or Python3.x) use the following:
+
+```
+python generate_galaxies.py
+```
+
+The only potentially useful argument to change is the batchsize:
+
+```
+python generate_galaxies.py --batchSize 16
+```
