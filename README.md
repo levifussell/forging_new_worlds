@@ -26,5 +26,5 @@ python generate_galaxies.py
 If you want to create a specific number of synthetic samples, modify the `batchSize` parameter with that number:
 
 ```shell
-python generate_galaxies.py --batchSize 16
+python generate_galaxies.py --batchSize 42
 ```
