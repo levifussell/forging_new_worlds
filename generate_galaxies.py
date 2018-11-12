@@ -24,25 +24,45 @@ from models import Generator_Stage1, Generator_Stage2
 
 """
 Running this file will generate you a batch of galaxies by loading
- both GANs and feeding some 100-D noise through the pipeline. Feel
- free to use this code as a model for using this model.
+both GANs and feeding some 100-D noise through the pipeline. Feel
+free to use this code as a model for using this model.
 """
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--dcgan_G', type=str, default='saved_models/dcgan_G.pth', help='filename of the 32->64 generator model')
-parser.add_argument('--stackgan_G', type=str, default='saved_models/stackgan_G.pth', help='filename of the 64->128 generator model')
-parser.add_argument('--batchSize', type=int, default=6, help='number of galaxy images to create')
+parser.add_argument('--dcgan_G', 
+                    type = str, 
+                    default = 'saved_models/dcgan_G.pth', 
+                    help = 'filename of the 32->64 generator model')
+parser.add_argument('--stackgan_G', 
+                    type = str, 
+                    default = 'saved_models/stackgan_G.pth', 
+                    help = 'filename of the 64->128 generator model')
+parser.add_argument('--batchSize', 
+                    type = int, 
+                    default = 1, 
+                    help='number of galaxy images to create')
 
 opts = parser.parse_args()
 print(opts) # print user choices
 
-# fix for python 2 as per here: https://discuss.pytorch.org/t/question-about-rebuild-tensor-v2/14560/2
+''''
+Fix for python 2 as per here:
+https://discuss.pytorch.org/t/question-about-rebuild-tensor-v2/14560/2
+'''
 import torch._utils
 try:
     torch._utils._rebuild_tensor_v2
 except AttributeError:
-    def _rebuild_tensor_v2(storage, storage_offset, size, stride, requires_grad, backward_hooks):
-        tensor = torch._utils._rebuild_tensor(storage, storage_offset, size, stride)
+    def _rebuild_tensor_v2(storage, 
+                           storage_offset, 
+                           size, 
+                           stride, 
+                           requires_grad, 
+                           backward_hooks):
+        tensor = torch._utils._rebuild_tensor(storage, 
+                                              storage_offset, 
+                                              size, 
+                                              stride)
         tensor.requires_grad = requires_grad
         tensor._backward_hooks = backward_hooks
         return tensor
@@ -58,11 +78,15 @@ def run_pipeline():
 
     # load stage-I Generator
     dcgan_G = Generator_Stage1()
-    dcgan_G.load_state_dict(torch.load(opts.dcgan_G, map_location=lambda storage, loc: storage))
+    dcgan_G.load_state_dict(torch.load(opts.dcgan_G, 
+                                       map_location = lambda storage, 
+                                       loc: storage))
 
     # load stage-II Generator
     stackgan_G = Generator_Stage2()
-    st = torch.load(opts.stackgan_G, map_location=lambda storage, loc: storage)
+    st = torch.load(opts.stackgan_G, 
+                    map_location = lambda storage, 
+                    loc: storage)
     new_st = OrderedDict()
     for k,v in st.items():
         if 'num_batches_tracked' not in k:
