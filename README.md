@@ -17,13 +17,13 @@ At the moment, this repository only provides the trained models for generating g
 
 #### Quickstart guide
 
-Generating galaxies with the provided pre-trained models works in both Python 2 and Python 3. In order to create a set of synthetic galaxy images, you can use the following command:
+Generating galaxies with the provided pre-trained models works in both Python 2 and Python 3. In order to create one synthetic galaxy image, you can simply use the following command:
 
 ```
 python generate_galaxies.py
 ```
 
-If you require a specific number of synthetic samples, modify the `batchSize` parameter with that number:
+If you want to create a specific number of synthetic samples, modify the `batchSize` parameter with that number:
 
 ```
 python generate_galaxies.py --batchSize 16
