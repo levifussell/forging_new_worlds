@@ -9,7 +9,7 @@ At the moment, this repository mainly provides the trained models for generating
 
 * `generate_galaxies.py`: The user-facing Python file to create synthetic galaxy samples
 
-* `models.py`: The DCGAN and StackGAN models used in the corresponding research and related paper
+* `models.py`: The DCGAN and StackGAN models used in the corresponding research and paper
 
 * `dcgan_G.pth`: The pre-trained DCGAN generator used to create synthetic 64x64 pixel galaxy images
 
