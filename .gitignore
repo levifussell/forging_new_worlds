@@ -1,0 +1,6 @@
+*.pyc
+samples/*.png
+*.vim
+*.un~
+*.swp
+__pycache__/
